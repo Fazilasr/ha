@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Floating Hardships - A digital sanctuary for sharing burdens and finding celestial solutions.">
+    <title>Heavenly Floating Hardships | Ascend Through Struggles</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" defer></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="bg-overlay" aria-hidden="true"></div>
+    
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo-container">
+                    <img src="images/profile.jpeg" alt="Floating Hardships Logo" class="logo" width="100" height="100">
+                    <h1>Floating Hardships</h1>
+                </div>
+                <p class="tagline">Ascend through struggles, find celestial solutions</p>
+            </div>
+
+            <!-- Icons on the top right corner -->
+            <div class="header-right">
+                <a href="#" id="home-icon" class="icon-btn" aria-label="Home" title="Home">
+                    <i class="fas fa-home"></i>
+                </a>
+                <a href="#" id="about-icon" class="icon-btn" aria-label="About" title="About">
+                    <i class="fas fa-info-circle"></i>
+                </a>
+                <a href="#" id="contact-icon" class="icon-btn" aria-label="Contact" title="Contact">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Form Section -->
+            <section id="submit-hardship" class="submit-section">
+                <h2>Share Your Earthly Burden</h2>
+                <form id="hardship-form" class="hardship-form">
+                    <div class="input-container">
+                        <label for="hardship-input" class="visually-hidden">Describe your hardship</label>
+                        <textarea id="hardship-input" placeholder="Describe your hardship and let it float to the heavens..." required aria-describedby="char-count"></textarea>
+                        <div id="char-count" class="char-count" aria-live="polite">0 / 1000</div>
+                    </div>
+                    <div class="category-selection">
+                        <label for="category-select">Choose a category:</label>
+                        <select id="category-select" required>
+                            <option value="">Select a category</option>
+                            <option value="personal">Personal</option>
+                            <option value="family">Family Issues</option>
+                            <option value="school">School</option>
+                            <option value="work">Work Related</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-feather" aria-hidden="true"></i> Release Your Burden
+                    </button>
+                </form>
+            </section>
+
+            <!-- Filter & Sort Section -->
+            <div class="filter-sort-container">
+                <label for="filter-select" class="visually-hidden">Filter hardships</label>
+                <select id="filter-select" class="filter-sort-select" aria-label="Filter hardships">
+                    <option value="all">All Hardships</option>
+                    <option value="personal">Personal</option>
+                    <option value="family">Family Issues</option>
+                    <option value="school">School</option>
+                    <option value="work">Work Related</option>
+                    <option value="other">Other</option>
+                </select>
+                
+                <label for="sort-select" class="visually-hidden">Sort hardships</label>
+                <select id="sort-select" class="filter-sort-select" aria-label="Sort hardships">
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="mostLiked">Most Liked</option>
+                    <option value="mostComments">Most Comments</option>
+                </select>
+
+                <button id="my-hardships-btn" class="filter-sort-select">My Submissions</button>
+            </div>
+
+            <section id="hardship-container" class="hardship-grid" aria-live="polite"></section>
+
+            <div class="pagination">
+                <button id="load-more" class="load-more-btn">Reveal More Hardships</button>
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="app-footer">
+            <p>&copy; 2024 Fazil~. All rights celestially reserved.</p>
+
+            </nav>
+        </footer>
+    </div>
+
+    <!-- Modal Structure for Home, About, and Contact -->
+    <div id="modal-container" class="modal-container" aria-hidden="true">
+        <!-- Placeholder for Home Modal -->
+        <div id="home-modal" class="modal" aria-hidden="true">
+            <h2>Welcome to Heavenly Floating Hardships</h2>
+            <p>This is your sanctuary to share your burdens and find solace.</p>
+            <button id="close-home-modal">Close</button>
+        </div>
+
+        <!-- Placeholder for About Modal -->
+        <div id="about-modal" class="modal" aria-hidden="true">
+            <h2>About Us</h2>
+            <p>Heavenly Floating Hardships is a community-driven platform created to offer support and solutions to life's struggles.</p>
+            <button id="close-about-modal">Close</button>
+        </div>
+
+        <!-- Placeholder for Contact Modal -->
+        <div id="contact-modal" class="modal" aria-hidden="true">
+            <h2>Contact Us</h2>
+            <p>We are here to listen and help. Feel free to reach out to us at contact@heavenlyhardships.com.</p>
+            <button id="close-contact-modal">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
