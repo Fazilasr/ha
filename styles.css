@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Nunito:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #7e57c2;
+    --secondary-color: #5e35b1;
+    --text-color: #f5f5f5;
+    --background-color: #1a1a2e;
+    --card-background: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    --hover-shadow: 0 8px 32px rgba(31, 38, 135, 0.6);
+    --card-gap: 20px;
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --header-bg: rgba(0, 0, 0, 0.5);
+    --transition-default: 0.3s ease;
+    --border-radius-default: 12px;
+    --box-shadow-hover: 0 8px 32px rgba(31, 38, 135, 0.6);
+    --spacing-large: 2.5rem;
+    --modal-blur: 20px;
+    --modal-opacity-bg: rgba(255, 255, 255, 0.15);
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+}
+
+/* App Container */
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-large);
+    position: relative;
+}
+
+/* Header */
+.app-header {
+    text-align: center;
+    padding: var(--spacing-large) 0;
+    margin-bottom: var(--spacing-large);
+    background: var(--header-bg);
+    border-radius: 15px;
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    margin-right: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 0 25px rgba(126, 87, 194, 0.7);
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(126, 87, 194, 0.9);
+    letter-spacing: 3px;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    color: #ccc;
+    font-style: italic;
+}
+
+/* Top Right Corner Icons */
+.header-right {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.icon-btn {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    transition: transform var(--transition-default), color var(--transition-default);
+}
+
+.icon-btn:hover {
+    transform: scale(1.1);
+    color: var(--primary-color);
+}
+
+/* Background Overlay */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+/* Submit Section */
+.submit-section {
+    background: linear-gradient(135deg, rgba(126, 87, 194, 0.4) 0%, rgba(94, 53, 177, 0.4) 100%);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: var(--spacing-large);
+    box-shadow: var(--card-shadow);
+    margin-bottom: var(--spacing-large);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-color);
+    transition: all var(--transition-default);
+}
+
+.hardship-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+#hardship-input {
+    width: 100%;
+    padding: 1.2rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-default);
+    font-size: 1.05rem;
+    min-height: 120px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: all var(--transition-default);
+    box-shadow: 0 0 10px rgba(126, 87, 194, 0.2);
+}
+
+#hardship-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(126, 87, 194, 0.4);
+}
+
+.char-count {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+/* Select Input */
+#category-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-default);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color var(--transition-default), box-shadow var(--transition-default);
+}
+
+#category-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(126, 87, 194, 0.4);
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: all var(--transition-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 250px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(126, 87, 194, 0.4);
+}
+
+.submit-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(94, 53, 177, 0.35);
+}
+
+.submit-btn i {
+    margin-right: 10px;
+}
+
+/* Filter and Sort Section */
+.filter-sort-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+    gap: 1rem;
+}
+
+.filter-sort-select {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: var(--text-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.6rem;
+    border-radius: 7px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: box-shadow var(--transition-default), border-color var(--transition-default);
+}
+
+.filter-sort-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(126, 87, 194, 0.4);
+}
+
+/* Hardship Grid */
+.hardship-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--card-gap);
+}
+
+.hardship-card {
+    background: linear-gradient(135deg, rgba(126, 87, 194, 0.2) 0%, rgba(94, 53, 177, 0.2) 100%);
+    backdrop-filter: blur(14px);
+    border-radius: 24px;
+    padding: 2.2rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all var(--transition-default);
+    display: flex;
+    flex-direction: column;
+    min-height: 270px;
+    position: relative;
+    overflow: hidden;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hardship-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.hardship-text {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    max-height: 180px;
+    overflow-y: auto;
+    padding-right: 10px;
+    color: var(--text-color);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.hardship-meta {
+    font-size: 0.85rem;
+    color: #bbb;
+    margin-bottom: 0.75rem;
+    font-style: italic;
+}
+
+.hardship-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hardship-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    transition: all var(--transition-default);
+    padding: 5px 12px;
+    border-radius: 15px;
+}
+
+.hardship-actions button:hover {
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Load More Button */
+.load-more-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem 1.8rem;
+    font-size: 1.1rem;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: all var(--transition-default);
+    display: block;
+    margin: 2rem auto;
+    box-shadow: 0 7px 15px rgba(126, 87, 194, 0.4);
+}
+
+.load-more-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(94, 53, 177, 0.4);
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    padding: 2.5rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(6px);
+}
+
+.footer-nav a {
+    color: #bbb;
+    text-decoration: none;
+    margin: 0 12px;
+    transition: color var(--transition-default), transform var(--transition-default);
+}
+
+.footer-nav a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Modals */
+.modal-container {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background: var(--modal-opacity-bg);
+    backdrop-filter: blur(var(--modal-blur));
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    color: var(--text-color);
+    max-width: 500px;
+    text-align: center;
+    animation: fadeInModal var(--transition-default);
+}
+
+.modal h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.modal p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all var(--transition-default);
+}
+
+.modal button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-4px);
+}
+
+/* Animations */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fadeInModal {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .app-container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .submit-section {
+        padding: 1.5rem;
+    }
+
+    .hardship-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal {
+        width: 90%;
+        margin: 5% auto;
+    }
+
+    .filter-sort-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .header-right {
+        right: 10px;
+    }
+}
+
+
+
